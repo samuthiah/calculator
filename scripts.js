@@ -1,6 +1,7 @@
 let numFirst = '';
 let operator = '';
 let numSecond = '';
+lastClickedIsEqual = false;
 
 function add(x, y) {
     return (+x + +y);
@@ -17,7 +18,6 @@ function multiply(x, y) {
 function divide(x,y) {
     return x / y;
 }
-
 
 // performs the 4 basic arithmetic operations based on the numbers and operator passed
 function operate(x, y, operator) {
@@ -59,17 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    // when an operator button is clicked, check if there's already an operator and if not, add operator to display and assigns it to the operator variable
+    // when an operator button is clicked, check if a first number has been entered and if so, assigns the given operator
     calcOperatorButtons.forEach((button) => {
         button.addEventListener('click', () => {
             if (numFirst === '') {
                 alert('Enter a number first');
             }
-            else if (operator === '') {
+            else if (numSecond ==='') {
                 operator = button.textContent;
+                lastClickedIsEqual = false;
             }
             else {
-                alert('Operator already selected');
+                if (operator === '/' && numSecond == 0) {
+                    alert ("You can't divide by zero!")
+                }
+                else {
+                    display.textContent = operate(numFirst, numSecond, operator);
+                    numFirst = display.textContent;
+                }
+                operator = button.textContent;
+                numSecond = '';
+                lastClickedIsEqual = false;
             }
         })
     })
@@ -96,6 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else {
             display.textContent = operate(numFirst, numSecond, operator);
+            numFirst = display.textContent;
+            numSecond = '';
+            lastClickedIsEqual = true;
         }
     })
 
