@@ -1,3 +1,8 @@
+let numFirst = '';
+let operator = '';
+let numSecond = '';
+let operators = ['+', '-', '*', '/'];
+
 function add(x, y) {
     return (+x + +y);
 }
@@ -14,9 +19,6 @@ function divide(x,y) {
     return x / y;
 }
 
-let numFirst;
-let operator;
-let numSecond;
 
 // performs the 4 basic arithmetic operations based on the numbers and operator passed
 function operate(x, y, operator) {
@@ -40,20 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const display = document.querySelector('.calcDisplay');
     let displayText;
 
-    // gets all number and operator buttons, then sets an event listener to see if they're clicked
-    const calcButtons = document.querySelectorAll('.calcButton');
-    calcButtons.forEach((button) => {
+    // gets all number and operator buttons
+    const calcNumberButtons = document.querySelectorAll('.calcNumberButton');
+    const calcOperatorButtons = document.querySelectorAll('.calcOperatorButton');
+
+    // when a number button is clicked, check if it's before or after the operator then adds the number to appropriate variable and updates display
+    calcNumberButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            // when a button is clicked, its text is displayed on the display and stored in a variable
-            display.textContent += button.textContent;
-            displayText = display.textContent;
+            if (operator === '') {
+                numFirst += button.textContent;
+            }
+            else {
+                numSecond += button.textContent;
+            }
+            display.textContent = numFirst + operator + numSecond;
+        })
+    })
+
+    // when an operator button is clicked, check if there's already an operator and if not, add operator to display and assigns it to the operator variable
+    calcOperatorButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (operator === '') {
+                operator = button.textContent;
+            }
+            else {
+                alert('operator already selected');
+            }
+            display.textContent = numFirst + operator + numSecond;
         })
     })
 
     // clear button clears dislpay
-    const clear = document.querySelector('.calcClearButton');
-    clear.addEventListener('click', () => {
+    const clearButton = document.querySelector('.calcClearButton');
+    clearButton.addEventListener('click', () => {
         display.textContent = '';
         displayText = '';
     })
+
+  
 })
