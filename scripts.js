@@ -1,7 +1,6 @@
 let numFirst = '';
 let operator = '';
 let numSecond = '';
-let operators = ['+', '-', '*', '/'];
 
 function add(x, y) {
     return (+x + +y);
@@ -62,11 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // when an operator button is clicked, check if there's already an operator and if not, add operator to display and assigns it to the operator variable
     calcOperatorButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            if (operator === '') {
+            if (numFirst === '') {
+                alert('Enter a number first');
+            }
+            else if (operator === '') {
                 operator = button.textContent;
             }
             else {
-                alert('operator already selected');
+                alert('Operator already selected');
             }
             display.textContent = numFirst + operator + numSecond;
         })
@@ -77,6 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
     clearButton.addEventListener('click', () => {
         display.textContent = '';
         displayText = '';
+    })
+
+    // equal button evaluates expression is both numbers and an operator have been given
+    const equalButton = document.querySelector('.equalButton');
+    equalButton.addEventListener('click', () => {
+        if (operator === '') {}
+        else if (numSecond === '') {
+            alert('Enter a second number');
+        }
+        else {
+            display.textContent = operate(numFirst, numSecond, operator);
+        }
     })
 
   
