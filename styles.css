@@ -1,6 +1,9 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .calcContainer {
@@ -8,15 +11,16 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    text-align: center;
     border: solid black;
-    width: 40%;
-    
+    flex: 1 1 75vh;
+    width: 50vh;
+    margin: 5vh;
 }
 
 .calcButtons {
     display: flex;
     justify-content: center;
+    flex: 6;
 }
 
 .calcTopRow, 
@@ -25,15 +29,19 @@ body {
 .calcZeroRow {
     display: flex;
     justify-content: center;
+    flex: 1;
 }
 
 .calcNumberButton {
     background-color: lightsalmon;
     border-radius: 5px;
+    flex: 1;
 }
 
 .calcDisplay {
     border: solid black;
+    flex: 1;
+    font-size: 15vh;
 }
 
 .calcOperatorButton,
@@ -41,9 +49,17 @@ body {
 .calcEqualButton {
     background-color: salmon;
     border-radius: 5px;
+    flex: 1;
 }
 
 .calcOperators {
     display: flex;
     flex-direction: column;
+    flex: 1;
+}
+
+.calcNumbers {
+    display: flex;
+    flex-direction: column;
+    flex:  3;
 }
