@@ -39,11 +39,20 @@ body {
 }
 
 .calcDisplay {
-    border: solid black;
+    display: flex;
+    justify-content: right;
+    align-items: center;
     flex: 1;
-    font-size: 15vh;
     padding: 10px;
+    border-bottom: solid black;
+    background: rgba(228, 96, 81, 0.337);
 }
+
+.calcDisplayText {
+    font-size: 9vh;
+    margin: 0;
+}
+
 
 .calcOperatorButton,
 .calcClearButton,

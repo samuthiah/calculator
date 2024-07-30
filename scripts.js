@@ -38,7 +38,7 @@ function operate(x, y, operator) {
 
 document.addEventListener('DOMContentLoaded', () => {
     // selects the display of the calculator and declares a variable to store future display text
-    const display = document.querySelector('.calcDisplay');
+    const display = document.querySelector('.calcDisplayText');
     let displayText;
 
     // gets all number and operator buttons
