@@ -50,11 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             if (operator === '') {
                 numFirst += button.textContent;
+                display.textContent = numFirst;
             }
             else {
                 numSecond += button.textContent;
+                display.textContent = numSecond;
             }
-            display.textContent = numFirst + operator + numSecond;
         })
     })
 
@@ -70,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             else {
                 alert('Operator already selected');
             }
-            display.textContent = numFirst + operator + numSecond;
         })
     })
 
