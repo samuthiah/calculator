@@ -78,12 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearButton = document.querySelector('.calcClearButton');
     clearButton.addEventListener('click', () => {
         display.textContent = '';
-        displayText = '';
+        numFirst = '';
+        operator = '';
+        numSecond = '';
     })
 
-    // equal button evaluates expression is both numbers and an operator have been given
+    // equal button evaluates expression if both numbers and an operator have been given
     const equalButton = document.querySelector('.equalButton');
     equalButton.addEventListener('click', () => {
+        // if there is no first number, the operator will also be blank, nothing to evaluate
         if (operator === '') {}
         else if (numSecond === '') {
             alert('Enter a second number');
