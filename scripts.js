@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else {
                 if (operator === '/' && numSecond == 0) {
                     alert ("You can't divide by zero!")
+                    numSecond = '';
                 }
                 else {
                     display.textContent = operate(numFirst, numSecond, operator);
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (operator === '/' && numSecond == 0) {
                 alert ("You can't divide by zero!")
+                numSecond = '';
         }
         else {
             display.textContent = operate(numFirst, numSecond, operator);
