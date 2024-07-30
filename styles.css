@@ -1,9 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
 .calcContainer {
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     text-align: center;
+    border: solid black;
+    width: 40%;
+    
 }
 
 .calcButtons {
@@ -17,6 +25,22 @@
 .calcZeroRow {
     display: flex;
     justify-content: center;
+}
+
+.calcNumberButton {
+    background-color: lightsalmon;
+    border-radius: 5px;
+}
+
+.calcDisplay {
+    border: solid black;
+}
+
+.calcOperatorButton,
+.calcClearButton,
+.calcEqualButton {
+    background-color: salmon;
+    border-radius: 5px;
 }
 
 .calcOperators {

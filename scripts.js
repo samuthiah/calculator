@@ -84,12 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // equal button evaluates expression if both numbers and an operator have been given
-    const equalButton = document.querySelector('.equalButton');
+    const equalButton = document.querySelector('.calcEqualButton');
     equalButton.addEventListener('click', () => {
         // if there is no first number, the operator will also be blank, nothing to evaluate
         if (operator === '') {}
         else if (numSecond === '') {
             alert('Enter a second number');
+        }
+        else if (operator === '/' && numSecond == 0) {
+                alert ("You can't divide by zero!")
         }
         else {
             display.textContent = operate(numFirst, numSecond, operator);
