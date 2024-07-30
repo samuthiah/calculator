@@ -33,3 +33,15 @@ function operate(x, y, operator) {
     } 
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const display = document.querySelector('.calcDisplay');
+    let displayText;
+    const calcButtons = document.querySelectorAll('.calcButton');
+    calcButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            display.textContent += button.textContent;
+            displayText = display.textContent;
+            console.log(displayText);
+        })
+    })
+})
