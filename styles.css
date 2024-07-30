@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    border: solid black;
+    border: solid black 3px;
     flex: 1 1 75vh;
     width: 50vh;
     margin: 5vh;
@@ -44,7 +44,7 @@ body {
     align-items: center;
     flex: 1;
     padding: 10px;
-    border-bottom: solid black;
+    border-bottom: solid black 3px;
     background: rgba(228, 96, 81, 0.337);
 }
 
