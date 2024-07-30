@@ -1,0 +1,25 @@
+.calcContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.calcButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.calcTopRow, 
+.calcMiddleRow,
+.calcBottomRow,
+.calcZeroRow {
+    display: flex;
+    justify-content: center;
+}
+
+.calcOperators {
+    display: flex;
+    flex-direction: column;
+}
