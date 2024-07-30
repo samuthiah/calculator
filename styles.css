@@ -53,6 +53,13 @@ body {
     flex: 1;
 }
 
+.calcClearRow {
+    flex: 1;
+    display: flex;
+}
+
+
+
 .calcOperators {
     display: flex;
     flex-direction: column;
