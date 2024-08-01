@@ -114,5 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-  
+    // allows floating point numbers to be entered
+    const period = document.querySelector('.calcFloatingPointButton');
+    period.addEventListener('click', () => {
+        // separates cases between first and second number
+        if (operator === '') {
+            // indexOf will return -1 if a period is not in the string thus far, prevents multiple periods
+            if (numFirst.indexOf('.') === -1)
+            {
+                numFirst += period.textContent;
+                display.textContent = numFirst;
+            }
+        }
+        else {
+            // indexOf will return -1 if a period is not in the string thus far, prevents multiple periods
+            if (numSecond.indexOf('.') === -1) {
+                numSecond += period.textContent;
+                display.textContent = numSecond;
+            }
+        }
+    })
 })
