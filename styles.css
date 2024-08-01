@@ -60,6 +60,8 @@ body {
 .calcDisplayText {
     font-size: 9vh;
     margin: 0;
+    max-width: max-content;
+    flex-wrap: wrap;
 }
 
 

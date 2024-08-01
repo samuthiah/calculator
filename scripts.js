@@ -19,19 +19,52 @@ function divide(x,y) {
     return x / y;
 }
 
+function round(x) {
+    // Convert to string for easier access to individual digits
+    stringNum = String(x);
+    decimalIndex = stringNum.indexOf('.');
+    // If number is short enough, no rounding necessary
+    if (stringNum.length <= 10) {
+        return x;
+    }
+    // indexOf used about returns -1 if no decimal in number
+    else if (decimalIndex === -1) {
+        return x.toExponential(3);
+    }
+    // still want to return exponential location if floating point number is too large
+    else if (decimalIndex > 9) {
+        return x.toExponential(3);
+    }
+    //
+    else {
+        if (stringNum[11] < 5) {
+            return (stringNum.slice(0,11));
+        }
+        else if (stringNum[10] === 9) {
+            stringNum[9]++;
+            stringNum[10] = 0;
+            return (stringNum.slice(0,11));
+        }
+        else {
+            stringNum[10]++;
+            return (stringNum.slice(0,11));
+        }
+    }
+}
+
 // performs the 4 basic arithmetic operations based on the numbers and operator passed
 function operate(x, y, operator) {
     if (operator === '*') {
-        return multiply(x, y);
+        return round(multiply(x, y));
     } 
     if (operator === '+') {
-        return add(x, y);
+        return round(add(x, y));
     } 
     if (operator === '-') {
-        return subtract(x, y);
+        return round(subtract(x, y));
     } 
     if (operator === '/') {
-        return divide(x, y);
+        return round(divide(x, y));
     } 
 }
 
@@ -49,12 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
     calcNumberButtons.forEach((button) => {
         button.addEventListener('click', () => {
             if (operator === '') {
-                numFirst += button.textContent;
-                display.textContent = numFirst;
+                if (numFirst.length < 10) {
+                    numFirst += button.textContent;
+                    display.textContent = numFirst;
+                }
             }
             else {
-                numSecond += button.textContent;
-                display.textContent = numSecond;
+                if (numSecond.length < 10) {
+                    numSecond += button.textContent;
+                    display.textContent = numSecond;
+                }
             }
         })
     })

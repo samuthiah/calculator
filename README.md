@@ -7,3 +7,6 @@ This project implements a simple calculator using HTML, CSS, and JavsScript. The
 - Addition, subtraction, multiplication, and division
 - Can evaluate a chain of expressions by pressing another operator rather than the equal sign
 - Supports using floating point numbers in functions
+
+## Usage
+- Calculator will only accept operands up to 10 digits long
