@@ -29,11 +29,11 @@ function round(x) {
     }
     // indexOf used about returns -1 if no decimal in number
     else if (decimalIndex === -1) {
-        return x.toExponential(3);
+        return x.toExponential(5);
     }
     // still want to return exponential location if floating point number is too large
     else if (decimalIndex > 9) {
-        return x.toExponential(3);
+        return x.toExponential(5);
     }
     //
     else {
@@ -129,6 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
         numFirst = '';
         operator = '';
         numSecond = '';
+    })
+
+    // implements a backspace button
+    const backspaceButton = document.querySelector('.calcBackspaceButton');
+    backspaceButton.addEventListener('click', () => {
+        if (operator === '') {
+            numFirst = numFirst.slice(0,-1);
+            display.textContent = numFirst;
+        }
+        else if (numSecond !== '') {
+            numSecond = numSecond.slice(0,-1);  
+            display.textContent = numSecond;
+        }
     })
 
     // equal button evaluates expression if both numbers and an operator have been given
